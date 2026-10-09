@@ -2,8 +2,40 @@
   color-scheme: light;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-synthesis: none;
-  background: #f9fafb;
-  color: #162033;
+  --page-bg: #f9fafb;
+  --surface: #fff;
+  --hero-bg: #edf3ff;
+  --section-bg: #eef1f6;
+  --text: #162033;
+  --muted: #38485f;
+  --border: #e2e6ed;
+  --accent: #1555ba;
+  --focus: #1a65cc;
+  --button-bg: #164fa8;
+  --button-hover: #103d86;
+  --on-button: #fff;
+  background: var(--page-bg);
+  color: var(--text);
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page-bg: #101826;
+  --surface: #162338;
+  --hero-bg: #182b48;
+  --section-bg: #131e30;
+  --text: #f0f4ff;
+  --muted: #bfcbdd;
+  --border: #34465f;
+  --accent: #a8ceff;
+  --focus: #94c4ff;
+  --button-bg: #80b5ff;
+  --button-hover: #b1d1ff;
+  --on-button: #101826;
+}
+
+[hidden] {
+  display: none !important;
 }
 
 * {
@@ -25,7 +57,7 @@ a {
 }
 
 a:focus-visible {
-  outline: 3px solid #1a65cc;
+  outline: 3px solid var(--focus);
   outline-offset: 4px;
 }
 
@@ -40,7 +72,7 @@ a:focus-visible {
   top: -5rem;
   left: 1rem;
   padding: 0.5rem 1rem;
-  background: #fff;
+  background: var(--surface);
 }
 
 .skip-link:focus {
@@ -48,8 +80,8 @@ a:focus-visible {
 }
 
 .site-header {
-  background: #fff;
-  border-bottom: 1px solid #e2e6ed;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
 }
 
 .header-content,
@@ -76,7 +108,7 @@ a:focus-visible {
 }
 
 .brand .brand-dot {
-  color: #1555ba;
+  color: var(--accent);
   font-weight: 800;
 }
 
@@ -96,9 +128,31 @@ nav a:hover {
   text-decoration: underline;
 }
 
+.theme-toggle {
+  min-height: 2.5rem;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+}
+
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
+}
+
 .hero {
   padding: clamp(5rem, 10vw, 9rem) 0;
-  background: #edf3ff;
+  background: var(--hero-bg);
 }
 
 .hero-content {
@@ -107,7 +161,7 @@ nav a:hover {
 
 .eyebrow {
   margin: 0 0 1rem;
-  color: #1555ba;
+  color: var(--accent);
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.13em;
@@ -146,7 +200,7 @@ h3 {
 .hero-description,
 .section-description {
   max-width: 40rem;
-  color: #38485f;
+  color: var(--muted);
   font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
@@ -160,14 +214,14 @@ h3 {
   gap: 0.65rem;
   padding: 0.8rem 1.2rem;
   border-radius: 0.6rem;
-  background: #164fa8;
-  color: #fff;
+  background: var(--button-bg);
+  color: var(--on-button);
   font-weight: 700;
   text-decoration: none;
 }
 
 .button:hover {
-  background: #103d86;
+  background: var(--button-hover);
 }
 
 .section {
@@ -186,26 +240,26 @@ h3 {
 
 .feature-card {
   padding: 2rem;
-  border: 1px solid #dbe1e9;
+  border: 1px solid var(--border);
   border-radius: 1rem;
-  background: #fff;
+  background: var(--surface);
 }
 
 .feature-card p,
 .about-content > p {
   margin-bottom: 0;
-  color: #38485f;
+  color: var(--muted);
 }
 
 .feature-number {
   display: inline-block;
   margin-bottom: 1.75rem;
-  color: #1555ba;
+  color: var(--accent);
   font-weight: 800;
 }
 
 .about {
-  background: #eef1f6;
+  background: var(--section-bg);
 }
 
 .about-content {
@@ -217,9 +271,9 @@ h3 {
 
 .site-footer {
   padding: 2rem 0;
-  background: #fff;
-  border-top: 1px solid #e2e6ed;
-  color: #38485f;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  color: var(--muted);
   font-size: 0.9rem;
 }
 
