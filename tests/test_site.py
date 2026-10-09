@@ -1,7 +1,6 @@
+import unittest
 from html.parser import HTMLParser
 from pathlib import Path
-import unittest
-
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -27,15 +26,21 @@ class SiteTests(unittest.TestCase):
         self.assertTrue(self.markup.lstrip().lower().startswith("<!doctype html>"))
         self.assertIn(("html", {"lang": "en"}), self.elements)
         self.assertTrue(any(tag == "main" for tag, _ in self.elements))
-        self.assertTrue(any(tag == "meta" and attrs.get("name") == "viewport" for tag, attrs in self.elements))
+        self.assertTrue(
+            any(tag == "meta" and attrs.get("name") == "viewport" for tag, attrs in self.elements)
+        )
 
     def test_greeting_is_available_without_javascript(self) -> None:
         self.assertIn("Hello, world!", self.markup)
-        self.assertTrue(any(attrs.get("data-greeting") is not None for _, attrs in self.elements))
+        self.assertTrue(any("data-greeting" in attrs for _, attrs in self.elements))
 
     def test_local_assets_exist(self) -> None:
-        stylesheet = [a.get("href") for tag, a in self.elements if tag == "link" and a.get("rel") == "stylesheet"]
-        scripts = [a.get("src") for tag, a in self.elements if tag == "script"]
+        stylesheet = [
+            attrs.get("href")
+            for tag, attrs in self.elements
+            if tag == "link" and attrs.get("rel") == "stylesheet"
+        ]
+        scripts = [attrs.get("src") for tag, attrs in self.elements if tag == "script"]
         self.assertIn("./assets/styles.css", stylesheet)
         self.assertIn("./assets/app.js", scripts)
         for asset in stylesheet + scripts:
