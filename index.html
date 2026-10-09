@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A fast, accessible demonstration website.">
+    <title>Test Website</title>
+    <link rel="stylesheet" href="./assets/styles.css">
+    <script type="module" src="./assets/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="container header-content">
+        <a class="brand" href="#top" aria-label="Test Website home">test<span>site</span><span class="brand-dot">.</span></a>
+        <nav aria-label="Primary navigation">
+          <a href="#features">Features</a>
+          <a href="#about">About</a>
+        </nav>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" hidden>Dark mode</button>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="container hero-content">
+          <p class="eyebrow">A simple starting point</p>
+          <h1 id="hero-title" data-greeting>Hello, world!</h1>
+          <p class="hero-description">A small test website built to be clear, quick, and easy to use. No installation or accounts required.</p>
+          <a class="button" href="#features">See what is included <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+
+      <section class="section" id="features" aria-labelledby="features-title">
+        <div class="container">
+          <p class="eyebrow">The essentials</p>
+          <h2 id="features-title">Simple by design.</h2>
+          <p class="section-description">Just the basics, carefully put together.</p>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <span class="feature-number" aria-hidden="true">01</span>
+              <h3>Fast to load</h3>
+              <p>Lean pages, straightforward code, and no runtime framework.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-number" aria-hidden="true">02</span>
+              <h3>Easy to use</h3>
+              <p>Responsive layouts, keyboard navigation, and readable text.</p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-number" aria-hidden="true">03</span>
+              <h3>Ready to grow</h3>
+              <p>A reliable foundation with automated checks for every change.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about" id="about" aria-labelledby="about-title">
+        <div class="container about-content">
+          <div>
+            <p class="eyebrow">About this project</p>
+            <h2 id="about-title">Built with the essentials.</h2>
+          </div>
+          <p>Plain HTML, CSS, and JavaScript. Nothing unnecessary, so the experience stays focused on what matters.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-content">
+        <span>Test Website</span>
+        <span>Made to test what works.</span>
+      </div>
+    </footer>
+  </body>
+</html>
