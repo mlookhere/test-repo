@@ -15,6 +15,9 @@ class ElementCollector(HTMLParser):
 
 
 class SiteTests(unittest.TestCase):
+    markup: str
+    elements: list[tuple[str, dict[str, str | None]]]
+
     @classmethod
     def setUpClass(cls) -> None:
         cls.markup = (ROOT / "index.html").read_text(encoding="utf-8")
