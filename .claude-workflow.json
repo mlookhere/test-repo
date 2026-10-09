@@ -115,10 +115,11 @@
       "mypy"
     ],
     "unit": [
-      "python3 -m unittest discover -s tests -v"
+      "\"$CI_PYTHON\" -m unittest discover -s tests -p \"test_*.py\" -v",
+      "node --test tests/*.test.js"
     ],
     "coverage": [
-      "python3 -m unittest discover -s tests -v"
+      "node --test --experimental-test-coverage --test-coverage-lines=52 tests/*.test.js"
     ],
     "security": [
       "pip-audit -r ci/requirements-ci.txt --strict"

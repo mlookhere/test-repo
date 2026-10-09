@@ -1,0 +1,21 @@
+:root {
+  color-scheme: light dark;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+
+.shell {
+  width: min(90%, 48rem);
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+}

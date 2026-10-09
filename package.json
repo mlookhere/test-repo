@@ -1,0 +1,6 @@
+{
+  "name": "test-website",
+  "private": true,
+  "type": "module",
+  "description": "Minimal static test website; no runtime dependencies."
+}
